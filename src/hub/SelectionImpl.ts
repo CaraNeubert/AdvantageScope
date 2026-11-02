@@ -68,7 +68,9 @@ export default class SelectionImpl implements Selection {
       switch (event.code) {
         case "Space":
           event.preventDefault();
-          this.togglePlayback();
+          if (!event.repeat) {
+            this.togglePlayback();
+          }
           break;
 
         case "KeyL":
@@ -80,7 +82,9 @@ export default class SelectionImpl implements Selection {
           }
 
           event.preventDefault();
-          this.toggleLock();
+          if (!event.repeat) {
+            this.toggleLock();
+          }
           break;
 
         case "ArrowLeft":
